@@ -15,8 +15,7 @@ function get_pwd() {
 }
 
 PROMPT='
-
-$fg[cyan]%n@%m: $fg[yellow]$(get_pwd)
+$fg[cyan]%m: $fg[yellow]$(get_pwd)
 $(git_prompt_info)
 $reset_color→ '
 
