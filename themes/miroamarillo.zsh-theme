@@ -18,7 +18,7 @@ build_prompt () {
 	local current_branch="[\uf020 $(current_branch)]"
 	local git_status="$(git status --porcelain 2> /dev/null)"
 
-	local number_of_untracked_files=$(\grep -c "^??" <<< "${git_status}")
+	local number_of_untracked_files="$(\grep -c "^??" <<< "${git_status}")"
 	local git_untracked="[\uf02d $number_of_untracked_files]"
 
 	local number_of_modified="$(\grep -c " M" <<< "${git_status}")"
