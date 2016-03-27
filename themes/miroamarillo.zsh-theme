@@ -71,3 +71,9 @@ build_prompt () {
 }
 #Execute Build Custom Prompt
 PROMPT='$(build_prompt)'
+
+nodeV() {
+  node_version=$(node -v 2>/dev/null)
+  npm_version=$(npm -v 2>/dev/null)
+  echo "$fg[green] "⬢" $node_version $fg[magenta] \uf0c8 $npm_version"
+}
