@@ -75,5 +75,5 @@ PROMPT='$(build_prompt)'
 nodeV() {
   node_version=$(node -v 2>/dev/null)
   npm_version=$(npm -v 2>/dev/null)
-  echo "$fg[green] "⬢" $node_version $fg[magenta] \uf0c4 $npm_version"
+  echo "$fg[green] "⬢ node" $node_version $fg[magenta] \uf0c4 "npm" "v"$npm_version"
 }
