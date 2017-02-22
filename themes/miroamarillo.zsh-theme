@@ -77,3 +77,6 @@ nodeV() {
   npm_version=$(npm -v 2>/dev/null)
   echo "$fg[green] "⬢ node" $node_version $fg[magenta] \uf0c4 "npm" "v"$npm_version"
 }
+mkcd() {
+	mkdir -p "$@"  && cd $_
+}
