@@ -8,6 +8,8 @@
 # Denys Dovhan - https://github.com/denysdovhan/spaceship-zsh-theme
 # Arialdo Martini - https://github.com/arialdomartini/oh-my-git
 
+#---FUNCTIONS---#
+
 #Build Custom Prompt
 build_prompt () {
 	#Print Working Directory
