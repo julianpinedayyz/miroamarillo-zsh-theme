@@ -112,3 +112,10 @@ nodeV() {
 #Make a directory and cd on it
 mkcd() {
 	mkdir -p "$@"  && cd $_
+}
+
+#Create a file and open in Sublime
+touchsb(){
+	touch "$@" && sublime "$@"
+}
+
