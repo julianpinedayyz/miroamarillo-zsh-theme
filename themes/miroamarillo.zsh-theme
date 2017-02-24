@@ -125,3 +125,8 @@ gitLog() {
   git --no-pager log -n "$@" --graph --pretty=format:'%Cred%h%Creset: %s' --abbrev-commit
 }
 
+#Show wifi password after been logged in once
+wifiPass() {
+  security find-generic-password -D "AirPort network password" -a "$@" -g
+}
+
