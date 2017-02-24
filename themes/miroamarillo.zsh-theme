@@ -135,3 +135,9 @@ server() {
   open "http://localhost:8000" && python -m SimpleHTTPServer 8000
 }
 
+#---ALIAS---#
+
+#Set up some alias
+alias hosts="sudo sublime /etc/hosts"
+alias today="cal |grep -A7 -B7 --color=auto $(date +%d)"
+alias mou="open -a Mou.app"
