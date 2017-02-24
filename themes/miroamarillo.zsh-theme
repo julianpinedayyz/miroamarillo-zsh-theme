@@ -119,3 +119,9 @@ touchsb(){
 	touch "$@" && sublime "$@"
 }
 
+#Log latest "n" changes from a git repo
+gitLog() {
+  echo "Here are your latest $@ commits, son!"
+  git --no-pager log -n "$@" --graph --pretty=format:'%Cred%h%Creset: %s' --abbrev-commit
+}
+
