@@ -85,6 +85,23 @@ google() {
     open "http://www.google.com/search?q=$search"
 }
 
+# Use trash command to send files to the trash bin istead of using rm
+trash() {
+  local path
+  for path in "$@"; do
+    # ignore any arguments
+    if [[ "$path" = -* ]]; then :
+    else
+      local dst=${path##*/}
+      # append the time if necessary
+      while [ -e ~/.Trash/"$dst" ]; do
+        dst="$dst "$(date +%H-%M-%S)
+      done
+      /bin/mv "$path" ~/.Trash/"$dst"
+    fi
+  done
+}
+
 nodeV() {
   node_version=$(node -v 2>/dev/null)
   npm_version=$(npm -v 2>/dev/null)
