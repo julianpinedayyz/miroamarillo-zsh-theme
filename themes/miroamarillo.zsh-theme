@@ -74,6 +74,17 @@ build_prompt () {
 #Execute Build Custom Prompt
 PROMPT='$(build_prompt)'
 
+# Makes a search on google. Use: google "search term"
+# Will open a new tab in the default browser (google) with the term
+google() {
+    search=""
+    echo "Googling: $@"
+    for term in $@; do
+        search="$search%20$term"
+    done
+    open "http://www.google.com/search?q=$search"
+}
+
 nodeV() {
   node_version=$(node -v 2>/dev/null)
   npm_version=$(npm -v 2>/dev/null)
