@@ -109,6 +109,6 @@ nodeV() {
 	echo "$fg[green] "⬢ node" $node_version $fg[magenta] \uf0c4 "npm" "v"$npm_version"
 }
 
+#Make a directory and cd on it
 mkcd() {
 	mkdir -p "$@"  && cd $_
-}
