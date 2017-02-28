@@ -11,7 +11,7 @@
 #---FUNCTIONS---#
 
 #Build Custom Prompt
-build_prompt () {
+build_prompt(){
 	#Print Working Directory
 	#local get_pwd="${PWD/$HOME/~}"
 	#Get git info
@@ -76,7 +76,7 @@ PROMPT='$(build_prompt)'
 
 # Makes a search on google. Use: google "search term"
 # Will open a new tab in the default browser (google) with the term
-google() {
+google(){
     search=""
     echo "Googling: $@"
     for term in $@; do
@@ -86,7 +86,7 @@ google() {
 }
 
 # Use trash command to send files to the trash bin istead of using rm
-trash() {
+trash(){
   local path
   for path in "$@"; do
     # ignore any arguments
@@ -103,14 +103,14 @@ trash() {
 }
 
 #Pretty node version log
-nodeV() {
+nodeV(){
 	node_version=$(node -v 2>/dev/null)
 	npm_version=$(npm -v 2>/dev/null)
 	echo "$fg[green] "⬢ node" $node_version $fg[magenta] \uf0c4 "npm" "v"$npm_version"
 }
 
 #Make a directory and cd on it
-mkcd() {
+mkcd(){
 	mkdir -p "$@"  && cd $_
 }
 
@@ -120,18 +120,18 @@ touchsb(){
 }
 
 #Log latest "n" changes from a git repo
-gitLog() {
+gitLog(){
   echo "Here are your latest $@ commits, son!"
   git --no-pager log -n "$@" --graph --pretty=format:'%Cred%h%Creset: %s' --abbrev-commit
 }
 
 #Show wifi password after been logged in once
-wifiPass() {
+wifiPass(){
   security find-generic-password -D "AirPort network password" -a "$@" -g
 }
 
 #Create a simpre http server with Python
-server() {
+server(){
   open "http://localhost:8000" && python -m SimpleHTTPServer 8000
 }
 
