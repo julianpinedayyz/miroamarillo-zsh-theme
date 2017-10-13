@@ -115,7 +115,7 @@ mkcd(){
 }
 
 #Create a file and open in Sublime
-touchsb(){
+tsb(){
 	touch "$@" && sublime "$@"
 }
 
