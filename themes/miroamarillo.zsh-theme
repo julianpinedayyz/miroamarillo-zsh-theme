@@ -130,7 +130,7 @@ wifiPass(){
   security find-generic-password -D "AirPort network password" -a "$@" -g
 }
 
-#Create a simpre http server with Python
+#Create a simple http server with Python
 server(){
   open "http://localhost:8000" && python -m SimpleHTTPServer 8000
 }
