@@ -143,6 +143,11 @@ myip(){
 	ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
 }
 
+#Open file in vscode from terminal
+code(){
+	VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;
+}
+
 #---ALIAS---#
 
 #Set up some alias
