@@ -148,6 +148,11 @@ code(){
 	VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;
 }
 
+#Create a file and open in Visual Studio
+tcode(){
+	touch "$@" && code "$@"
+}
+
 #---ALIAS---#
 
 #Set up some alias
