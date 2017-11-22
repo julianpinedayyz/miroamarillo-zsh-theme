@@ -132,6 +132,7 @@ wifiPass(){
 
 #Create a simple http server with Python
 server(){
+pyserver(){
   open "http://localhost:8000" && python -m SimpleHTTPServer 8000
 }
 
