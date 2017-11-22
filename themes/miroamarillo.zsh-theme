@@ -20,6 +20,11 @@ build_prompt(){
 	local current_branch="[\uf020 $(current_branch)]"
 	local git_status="$(git status --porcelain 2> /dev/null)"
 
+	local upstream="$(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} 2> /dev/null)"
+	if [[ -n "${upstream}" && "${upstream}" != "@{upstream}" ]]; then
+		local has_upstream=true
+	fi
+
 	local number_of_untracked_files="$(\grep -c "^??" <<< "${git_status}")"
 	local git_untracked="[\uf02d $number_of_untracked_files]"
 
