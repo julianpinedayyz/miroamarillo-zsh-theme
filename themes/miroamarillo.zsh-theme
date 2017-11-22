@@ -131,9 +131,12 @@ wifiPass(){
 }
 
 #Create a simple http server with Python
-server(){
 pyserver(){
   open "http://localhost:8000" && python -m SimpleHTTPServer 8000
+}
+# Create php server on current folder
+phpserver(){
+  open "http://localhost:8088" && php -S 127.0.0.1:8088
 }
 
 myip(){
