@@ -163,3 +163,4 @@ tcode(){
 #Set up some alias
 alias hosts="sudo sublime /etc/hosts"
 alias today="cal |grep -A7 -B7 --color=auto $(date +%d)"
+alias mtheme="~/Sites/GitHub/miroamarillo-zsh-theme/themes && code miroamarillo.zsh-theme"
