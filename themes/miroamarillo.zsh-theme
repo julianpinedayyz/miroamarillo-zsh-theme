@@ -64,6 +64,10 @@ build_prompt(){
 	if [[ $is_a_git_repo == true ]]; then
 		prompt+="$fg[cyan]%m: $fg[yellow]${PWD/$HOME/~}\n"
 		prompt+="$is_git_repo $(parse_git_dirty) $current_branch"
+		#Stashes
+		if [[ $number_of_stashes -gt 0 ]]; then
+			prompt+="$fg[yellow]$git_stashes "
+		fi
 		#Modified files
 		if [[ $number_of_modified -gt 0 ]]; then
 			prompt+="$fg[cyan]$git_modified"
