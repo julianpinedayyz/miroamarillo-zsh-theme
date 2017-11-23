@@ -42,6 +42,9 @@ build_prompt(){
 		local commits_ahead=$(\grep -c "^<" <<< "$commits_diff")
 		local commits_behind=$(\grep -c "^>" <<< "$commits_diff")
 	fi
+
+	local git_commits_behind="[\uf00b -$commits_behind]"
+	local git_commits_ahead="[\uf00c +$commits_ahead]"
 	local prompt=""
 
 	ZSH_THEME_GIT_PROMPT_DIRTY="$fg[red]"
