@@ -28,8 +28,8 @@ build_prompt(){
 
 	#Get git info
 	local current_commit_hash="$(git rev-parse HEAD 2> /dev/null)"
-	local is_git_repo="$reset_color\uf008"
-	local current_branch="[\uf020 $(current_branch)]"
+	local is_git_repo="$reset_color$octoface"
+	local current_branch="[$branch $(current_branch)]"
 	local git_status="$(git status --porcelain 2> /dev/null)"
 
 	local upstream="$(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} 2> /dev/null)"
@@ -38,16 +38,16 @@ build_prompt(){
 	fi
 
 	local number_of_untracked_files="$(\grep -c "^??" <<< "${git_status}")"
-	local git_untracked="[\uf02d $number_of_untracked_files]"
+	local git_untracked="[$alert $number_of_untracked_files]"
 
 	local number_of_modified="$(\grep -c " M" <<< "${git_status}")"
-	local git_modified="[\uf04d $number_of_modified]"
+	local git_modified="[$diff $number_of_modified]"
 
 	local number_of_added="$(\grep -c "A " <<< "${git_status}")"
-	local git_added="[\uf06b $number_of_added]"
+	local git_added="[$diff_added $number_of_added]"
 
 	local number_of_deleted="$(\grep -c "D " <<< "${git_status}")"
-	local git_deleted="[\uf0d0 $number_of_deleted]"
+	local git_deleted="[$trash_can $number_of_deleted]"
 
 	if [[ $has_upstream == true ]]; then
 		local commits_diff=$(git log --pretty=oneline --topo-order --left-right ${current_commit_hash}...${upstream} 2> /dev/null)
@@ -55,12 +55,12 @@ build_prompt(){
 		local commits_behind=$(\grep -c "^>" <<< "$commits_diff")
 	fi
 
-	local git_commits_behind="[\uf00b -$commits_behind]"
-	local git_commits_ahead="[\uf00c +$commits_ahead]"
+	local git_commits_behind="[$remote_behind -$commits_behind]"
+	local git_commits_ahead="[$remote_ahead +$commits_ahead]"
 
 	#Number of Stashes
 	local number_of_stashes="$(git stash list -n1 2> /dev/null | wc -l)"
-	local git_stashes="\uf0c4"
+	local git_stashes="$stashes"
 
 	local prompt=""
 
