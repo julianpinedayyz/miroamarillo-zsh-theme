@@ -88,6 +88,14 @@ build_prompt(){
 		if [[ $commits_behind -gt 0 ]]; then
 			prompt+="$fg[red]$git_commits_behind"
 		fi
+		#Commits Ahead remote
+		if [[ $commits_ahead -gt 0 ]]; then
+			if [[ $commits_behind == 0 && $number_of_deleted == 0 && $number_of_added == 0 && $number_of_untracked_files == 0 && $number_of_modified == 0 ]]; then
+				prompt+="$fg[green]$git_commits_ahead"
+			else
+				prompt+="$fg[red]$git_commits_ahead"
+			fi
+		fi
 		prompt+="\n$fg[green]→ $reset_color"
 	else
 		prompt+="$fg[cyan]%m: $fg[yellow]${PWD/$HOME/~}\n"
