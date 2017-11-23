@@ -45,6 +45,11 @@ build_prompt(){
 
 	local git_commits_behind="[\uf00b -$commits_behind]"
 	local git_commits_ahead="[\uf00c +$commits_ahead]"
+
+	#Number of Stashes
+	local number_of_stashes="$(git stash list -n1 2> /dev/null | wc -l)"
+	local git_stashes="\uf0c4"
+
 	local prompt=""
 
 	ZSH_THEME_GIT_PROMPT_DIRTY="$fg[red]"
