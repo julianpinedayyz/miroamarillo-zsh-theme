@@ -37,6 +37,11 @@ build_prompt(){
 	local number_of_deleted="$(\grep -c "D " <<< "${git_status}")"
 	local git_deleted="[\uf0d0 $number_of_deleted]"
 
+	if [[ $has_upstream == true ]]; then
+		local commits_diff=$(git log --pretty=oneline --topo-order --left-right ${current_commit_hash}...${upstream} 2> /dev/null)
+		local commits_ahead=$(\grep -c "^<" <<< "$commits_diff")
+		local commits_behind=$(\grep -c "^>" <<< "$commits_diff")
+	fi
 	local prompt=""
 
 	ZSH_THEME_GIT_PROMPT_DIRTY="$fg[red]"
