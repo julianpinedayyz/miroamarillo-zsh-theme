@@ -84,6 +84,10 @@ build_prompt(){
 		if [[ $number_of_deleted -gt 0 ]]; then
 			prompt+="$fg[red]$git_deleted"
 		fi
+		#Commits Behind remote
+		if [[ $commits_behind -gt 0 ]]; then
+			prompt+="$fg[red]$git_commits_behind"
+		fi
 		prompt+="\n$fg[green]→ $reset_color"
 	else
 		prompt+="$fg[cyan]%m: $fg[yellow]${PWD/$HOME/~}\n"
