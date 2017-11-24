@@ -172,10 +172,11 @@ trash(){
     else
       local dst=${path##*/}
       # append the time if necessary
-      while [ -e ~/.Trash/"$dst" ]; do
-        dst="$dst "$(date +%H-%M-%S)
-      done
+    #   while [ -e ~/.Trash/"$dst" ]; do
+    #     dst="$dst "$(date +%H-%M-%S)
+    #   done
       /bin/mv "$path" ~/.Trash/"$dst"
+	  echo "$fg[green]$@ $fg[yellow]was sent to the trash $fg[green]\uf0d0"
     fi
   done
 }
