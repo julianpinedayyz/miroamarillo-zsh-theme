@@ -85,8 +85,8 @@ build_prompt(){
 
 	local prompt=""
 
-	ZSH_THEME_GIT_PROMPT_DIRTY="$fg[red]"
-	ZSH_THEME_GIT_PROMPT_CLEAN="$fg[green]"
+	ZSH_THEME_GIT_PROMPT_DIRTY="$red"
+	ZSH_THEME_GIT_PROMPT_CLEAN="$green"
 
 	#if git repo - show relevant info in second line
 	#Check that folder is a git repo
@@ -95,44 +95,44 @@ build_prompt(){
 	fi
 
 	if [[ $is_a_git_repo == true ]]; then
-		prompt+="$fg[cyan]%m: $fg[yellow]${PWD/$HOME/~}\n"
+		prompt+="$cyan$terminal  $yellow${PWD/$HOME/~}\n"
 		prompt+="$is_git_repo $(parse_git_dirty) $current_branch"
 		#Stashes
 		if [[ $number_of_stashes -gt 0 ]]; then
-			prompt+="$fg[yellow]$git_stashes "
+			prompt+="$pink$git_stashes "
 		fi
 		#Modified files
 		if [[ $number_of_modified -gt 0 ]]; then
-			prompt+="$fg[cyan]$git_modified"
+			prompt+="$blue$git_modified"
 		fi
 		#Untracked Files
 		if [[ $number_of_untracked_files -gt 0 ]]; then
-			prompt+="$fg[yellow]$git_untracked"
+			prompt+="$yellow$git_untracked"
 		fi
 		#Added Files
 		if [[ $number_of_added -gt 0 ]]; then
-			prompt+="$fg[green]$git_added"
+			prompt+="$green$git_added"
 		fi
 		#Deleted Files
 		if [[ $number_of_deleted -gt 0 ]]; then
-			prompt+="$fg[red]$git_deleted"
+			prompt+="$red$git_deleted"
 		fi
 		#Commits Behind remote
 		if [[ $commits_behind -gt 0 ]]; then
-			prompt+="$fg[red]$git_commits_behind"
+			prompt+="$red$git_commits_behind"
 		fi
 		#Commits Ahead remote
 		if [[ $commits_ahead -gt 0 ]]; then
 			if [[ $commits_behind == 0 && $number_of_deleted == 0 && $number_of_added == 0 && $number_of_untracked_files == 0 && $number_of_modified == 0 ]]; then
-				prompt+="$fg[green]$git_commits_ahead"
+				prompt+="$green$git_commits_ahead"
 			else
-				prompt+="$fg[red]$git_commits_ahead"
+				prompt+="$red$git_commits_ahead"
 			fi
 		fi
-		prompt+="\n$fg[green]→ $reset_color"
+		prompt+="\n$green$arrow $reset_color"
 	else
-		prompt+="$fg[cyan]%m: $fg[yellow]${PWD/$HOME/~}\n"
-		prompt+="$fg[green]→ $reset_color"
+		prompt+="$cyan$terminal  $yellow${PWD/$HOME/~}\n"
+		prompt+="$green$arrow $reset_color"
 	fi
 
 	#Print Prompt
