@@ -10,6 +10,38 @@
 
 #---FUNCTIONS---#
 
+# Create Octicons icons variables
+# Escape the variables with %{ iconCode %}
+local octoface="%{\uf008%}"
+local branch="%{\uf020%}"
+local alert="%{\uf02d%}"
+local diff="%{\uf04d%}"
+local diff_added="%{\uf06b%}"
+local trash_can="%{\uf0d0%}"
+local remote_behind="%{\uf00b%}"
+local remote_ahead="%{\uf00c%}"
+local stashes="%{\uf0c4%}"
+local terminal="%{\uf0c8%}"
+local arrow="%{\uf06e%}"
+
+#colors - copy and paste "spectrum_ls" to see the complete pallete of colors
+#Ref escaping colors https://stackoverflow.com/questions/13546672/custom-oh-my-zsh-theme-long-prompts-disappear-cut-off/14179542#14179542
+#Ref escaping colors https://stackoverflow.com/questions/7957435/zsh-auto-complete-screws-up-command-name/10644062#10644062
+#Ref spectrum_ls https://gabri.me/blog/custom-colors-in-your-zsh-prompt/
+#Ref spectrum_ls https://github.com/robbyrussell/oh-my-zsh/issues/3964
+
+yellow="%{$fg[yellow]%}"
+orange="%{$FG[208]%}"
+red="%{$fg[red]%}"
+magenta="%{$fg[magenta]%}"
+violet="%{$fg_bold[magenta]%}"
+blue="%{$fg[blue]%}"
+cyan="%{$FG[045]%}"
+green="%{$fg[green]%}"
+white="%{$fg[white]%}"
+pink="%{$FG[013]%}"
+octoface_color="%{$FG[252]%}"
+
 #Build Custom Prompt
 build_prompt(){
 	#Print Working Directory
