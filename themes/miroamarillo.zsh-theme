@@ -47,20 +47,9 @@ build_prompt(){
 	#Print Working Directory
 	#local get_pwd="${PWD/$HOME/~}"
 
-	# Create Octicons icons variables
-	local octoface="\uf008"
-	local branch="\uf020"
-	local alert="\uf02d"
-	local diff="\uf04d"
-	local diff_added="\uf06b"
-	local trash_can="\uf0d0"
-	local remote_behind="\uf00b"
-	local remote_ahead="\uf00c"
-	local stashes="\uf0c4"
-
 	#Get git info
 	local current_commit_hash="$(git rev-parse HEAD 2> /dev/null)"
-	local is_git_repo="$reset_color$octoface"
+	local is_git_repo="$reset_color$octoface_color$octoface"
 	local current_branch="[$branch $(current_branch)]"
 	local git_status="$(git status --porcelain 2> /dev/null)"
 
