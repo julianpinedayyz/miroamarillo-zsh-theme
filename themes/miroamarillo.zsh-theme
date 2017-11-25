@@ -42,6 +42,13 @@ white="%{$fg[white]%}"
 pink="%{$FG[013]%}"
 octoface_color="%{$FG[252]%}"
 
+dateP() {
+	date '+%d-%m-%y '
+}
+timeP() {
+	date '+%H:%M:%S '
+}
+
 #Build Custom Prompt
 build_prompt(){
 	#Print Working Directory
@@ -95,7 +102,7 @@ build_prompt(){
 	fi
 
 	if [[ $is_a_git_repo == true ]]; then
-		prompt+="$cyan$terminal  $yellow${PWD/$HOME/~}\n"
+		prompt+="$orange$(dateP)$cyan$terminal  $yellow${PWD/$HOME/~}\n"
 		prompt+="$is_git_repo $(parse_git_dirty) $current_branch"
 		#Stashes
 		if [[ $number_of_stashes -gt 0 ]]; then
@@ -129,10 +136,10 @@ build_prompt(){
 				prompt+="$red$git_commits_ahead"
 			fi
 		fi
-		prompt+="\n$green$arrow $reset_color"
+		prompt+="\n$orange$(timeP)$green$arrow $reset_color"
 	else
-		prompt+="$cyan$terminal  $yellow${PWD/$HOME/~}\n"
-		prompt+="$green$arrow $reset_color"
+		prompt+="$orange$(dateP)$cyan$terminal  $yellow${PWD/$HOME/~}\n"
+		prompt+="$orange$(timeP)$green$arrow $reset_color"
 	fi
 
 	#Print Prompt
