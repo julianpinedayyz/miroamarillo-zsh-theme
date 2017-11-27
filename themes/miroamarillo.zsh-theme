@@ -49,6 +49,9 @@ timeP() {
 	date '+%H:%M:%S '
 }
 
+# Status of last command (for prompt)
+local stat="%(?.$green.$red)"
+
 #Build Custom Prompt
 build_prompt(){
 	#Print Working Directory
