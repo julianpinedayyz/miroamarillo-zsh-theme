@@ -139,10 +139,10 @@ build_prompt(){
 				prompt+="$red$git_commits_ahead"
 			fi
 		fi
-		prompt+="\n$orange$(timeP)$green$arrow $reset_color"
+		prompt+="\n$orange$(timeP)$stat$arrow $reset_color "
 	else
 		prompt+="$orange$(dateP)$cyan$terminal  $yellow${PWD/$HOME/~}\n"
-		prompt+="$orange$(timeP)$green$arrow $reset_color"
+		prompt+="$orange$(timeP)$stat$arrow $reset_color "
 	fi
 
 	#Print Prompt
