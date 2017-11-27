@@ -42,9 +42,11 @@ white="%{$fg[white]%}"
 pink="%{$FG[013]%}"
 octoface_color="%{$FG[252]%}"
 
+# get the date
 dateP() {
 	date '+%d-%m-%y '
 }
+#get the time
 timeP() {
 	date '+%H:%M:%S '
 }
@@ -222,6 +224,7 @@ phpserver(){
   open "http://localhost:8088" && php -S 127.0.0.1:8088
 }
 
+# Show my ip
 myip(){
     ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
 	ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
