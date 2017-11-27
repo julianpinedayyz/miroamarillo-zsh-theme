@@ -180,6 +180,11 @@ trash(){
   done
 }
 
+# Move funtion with log
+move() {
+	/bin/mv $1 $2
+	echo "$fg[green]$1 $fg[yellow]has been moved to $fg[green]$2"
+}
 #Pretty node version log
 nodeV(){
 	node_version=$(node -v 2>/dev/null)
