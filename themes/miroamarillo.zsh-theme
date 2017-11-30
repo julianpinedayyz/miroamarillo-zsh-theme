@@ -252,9 +252,3 @@ alias today="cal |grep -A7 -B7 --color=auto $(date +%d)"
 alias mtheme="~/Sites/GitHub/miroamarillo-zsh-theme/themes && code miroamarillo.zsh-theme"
 alias sameTab="open . -a iTerm"
 alias codeFolder="open -a Viopen -a Visual\ Studio\ Code ."
-#Backbase alias and functions (Temporary)
-#Alias
-alias omni="cd ~/Sites/RBC-Omni/rbc-poc/collection-banking-source/src/app"
-omnirun(){
-	cd ~/Sites/RBC-Omni/rbc-poc/collection-banking-source/src/app && open "http://localhost:4200/#/" && npm start;
-}
