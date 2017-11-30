@@ -243,7 +243,7 @@ code(){
 tcode(){
 	touch "$@" && code "$@"
 }
-
+# Create a function to scafold an angular app
 #---ALIAS---#
 
 #Set up some alias
