@@ -244,6 +244,12 @@ tcode(){
 	touch "$@" && code "$@"
 }
 # Create a function to scafold an angular app
+
+# list the ports in use that match localhost and listen
+ports(){
+	lsof -i@localhost -sTCP:LISTEN | col 1 2 3 5 8 9 10 | column -t
+}
+col() { awk '{print $'$(echo $* | sed -e 's/ /,$/g')'}'; }
 #---ALIAS---#
 
 #Set up some alias
