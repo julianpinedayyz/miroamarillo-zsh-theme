@@ -247,7 +247,7 @@ tcode(){
 
 # list the ports in use that match localhost and listen
 ports(){
-	lsof -i@localhost -sTCP:LISTEN | col 1 2 3 5 8 9 10 | column -t
+	lsof -i@localhost -sTCP:LISTEN | col 1 2 3 5 8 9 10 | column -t | GREP_COLOR='01;36' egrep --color=always 'COMMAND|PID|USER|TYPE|NODE|NAME|$'
 }
 col() { awk '{print $'$(echo $* | sed -e 's/ /,$/g')'}'; }
 #---ALIAS---#
