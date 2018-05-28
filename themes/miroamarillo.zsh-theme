@@ -69,16 +69,16 @@ build_prompt(){
 	if [[ -n "${upstream}" && "${upstream}" != "@{upstream}" ]]; then
 		local has_upstream=true
 	fi
-
+	#Untracked files
 	local number_of_untracked_files="$(\grep -c "^??" <<< "${git_status}")"
 	local git_untracked="[$alert $number_of_untracked_files]"
-
+	#Modified but not staged
 	local number_of_modified="$(\grep -c " M" <<< "${git_status}")"
 	local git_modified="[$diff $number_of_modified]"
 
 	local number_of_added="$(\grep -c "A " <<< "${git_status}")"
 	local git_added="[$diff_added $number_of_added]"
-
+	#Deleted Files
 	local number_of_deleted="$(\grep -c "D " <<< "${git_status}")"
 	local git_deleted="[$trash_can $number_of_deleted]"
 
