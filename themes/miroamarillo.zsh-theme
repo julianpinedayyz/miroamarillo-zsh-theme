@@ -261,3 +261,6 @@ alias codeFolder="open -a Viopen -a Visual\ Studio\ Code ."
 alias las=" ls -la"
 alias chrome="open -a 'Google Chrome'"
 alias firef="open -a 'FirefoxLatestStable'"
+#alias to register work an personal keys
+alias keyWork="ssh-add -D && ssh-add -K ~/.ssh/jupinedaDTdot"
+alias keyPersonal="ssh-add -D && ssh-add -K ~/.ssh/id_rsa"
