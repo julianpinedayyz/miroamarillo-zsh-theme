@@ -199,11 +199,6 @@ mkcd(){
 	mkdir -p "$@"  && cd $_
 }
 
-#Create a file and open in Sublime
-tsb(){
-	touch "$@" && sublime "$@"
-}
-
 #Log latest "n" changes from a git repo
 gitLog(){
   echo "Here are your latest $@ commits, son!"
